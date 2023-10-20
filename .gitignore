@@ -1,4 +1,4 @@
 data/
-secrets/
+.streamlit/secrets.toml
 test-plots.ipynb
 venv-ftbl-impctd-dsh

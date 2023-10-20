@@ -2,6 +2,16 @@ import pandas as pd
 import plotly.express as px
 
 def create_map(data):
+
+    data.fillna('NA', inplace=True)
+    data.rename(columns={"Programmes and Projects": "programmes_and_projects"}, inplace=True)
+
+    data["programmes_and_projects"] = data["programmes_and_projects"].str.replace(",", "<br>")
+    data["SDGs"] = data["SDGs"].str.replace(",", "<br>")
+
+    data["size"]= 8
+    data["color"] = "#001f3f"
+
     fig = px.scatter_mapbox(data, 
                         lat="lat", 
                         lon="lon", 
